@@ -16,3 +16,12 @@ export async function crearPersonaje(req, res, next) {
     next(error);
   }
 }
+
+export async function listarPersonajes(req, res, next) {
+  try {
+    const personajes = await personajeService.listar();
+    res.json({ data: personajes });
+  } catch (error) {
+    next(error);
+  }
+}
