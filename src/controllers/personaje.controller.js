@@ -25,3 +25,13 @@ export async function listarPersonajes(req, res, next) {
     next(error);
   }
 }
+
+export async function obtenerPersonaje(req, res, next) {
+  try {
+    const personaje = await personajeService.buscarPorId(req.params.id);
+    if (!personaje) return res.status(404).json({ error: "Personaje no encontrado" });
+    res.json({ data: personaje });
+  } catch (error) {
+    next(error);
+  }
+}
