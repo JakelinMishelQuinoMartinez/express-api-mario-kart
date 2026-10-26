@@ -46,3 +46,13 @@ export async function actualizarPersonaje(req, res, next) {
     next(error);
   }
 }
+
+export async function eliminarPersonaje(req, res, next) {
+  try {
+    const personaje = await personajeService.eliminar(req.params.id);
+    if (!personaje) return res.status(404).json({ error: "Personaje no encontrado" });
+    res.status(204).send();
+  } catch (error) {
+    next(error);
+  }
+}
