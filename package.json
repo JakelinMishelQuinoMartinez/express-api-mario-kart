@@ -1,0 +1,24 @@
+{
+  "name": "express-api-mario-kart",
+  "version": "1.0.0",
+  "description": "API REST para administrar personajes de Mario Kart",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node --env-file=.env src/server.js",
+    "dev": "node --env-file=.env --watch src/server.js"
+  },
+  "keywords": [
+    "mario-kart",
+    "personajes",
+    "api"
+  ],
+"author": "Jakelin",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^5.3.0",
+    "express-validator": "^7.3.2",
+    "mysql2": "^3.24.6"
+  }
+}
