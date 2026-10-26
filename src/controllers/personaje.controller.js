@@ -35,3 +35,14 @@ export async function obtenerPersonaje(req, res, next) {
     next(error);
   }
 }
+
+export async function actualizarPersonaje(req, res, next) {
+  try {
+    const datos = new ActualizarPersonajeDTO(req.body);
+    const personaje = await personajeService.actualizar(req.params.id, datos);
+    if (!personaje) return res.status(404).json({ error: "Personaje no encontrado" });
+    res.json({ data: personaje });
+  } catch (error) {
+    next(error);
+  }
+}
